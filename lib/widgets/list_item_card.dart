@@ -25,17 +25,23 @@ class ListItemCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      '$title',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
+                    Flexible(
+                      flex: 1,
+                      child: Text(
+                        '$title',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
+                      ),
                     ),
-                    Text(
-                      '$volume',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
+                    Flexible(
+                      flex: 1,
+                      child: Text(
+                        '$volume',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
+                      ),
                     ),
                   ],
                 ),
@@ -46,17 +52,23 @@ class ListItemCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      '$meta',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.white70),
+                    Flexible(
+                      flex: 1,
+                      child: Text(
+                        '$meta',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: Colors.white70),
+                      ),
                     ),
-                    Text(
-                      '$difference',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: type == ItemType.INCREASE ? Colors.lightGreen : Colors.redAccent),
+                    Flexible(
+                      flex: 1,
+                      child: Text(
+                        '$difference',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: type == ItemType.INCREASE ? Colors.lightGreen : Colors.redAccent),
+                      ),
                     ),
                   ],
                 ),

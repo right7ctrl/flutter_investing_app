@@ -11,7 +11,7 @@ class CustomTopbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScrollController _scrollController =ScrollController();
+    ScrollController _scrollController = ScrollController();
     return Container(
       height: 54,
       width: double.infinity,
@@ -29,7 +29,7 @@ class CustomTopbar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: GestureDetector(
                 onTap: () {
-    _scrollController.jumpTo(5);
+                  _scrollController.jumpTo(5);
 
                   this.onTap(f.id);
                 },
@@ -38,7 +38,8 @@ class CustomTopbar extends StatelessWidget {
                     Center(
                       child: Text(
                         '${f.title}',
-                        style: TextStyle(fontSize: 16, color: _isSelected ? Colors.white : Colors.blueGrey.shade300, fontWeight: _isSelected ? FontWeight.w500 : null),
+                        style: TextStyle(
+                            fontSize: 16, color: _isSelected ? Colors.white : Colors.blueGrey.shade300, fontWeight: _isSelected ? FontWeight.w500 : null),
                       ),
                     ),
                     _isSelected

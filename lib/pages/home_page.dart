@@ -52,9 +52,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           CustomTopbar(
             onTap: (int val) {
-              //  Scrollable.ensureVisible(itemKey.currentContext);
               _setTopBarIndex(val);
-
               _pageController.animateToPage(val, duration: Duration(milliseconds: 300), curve: Curves.ease);
             },
             currentIndex: _topBarIndex,
