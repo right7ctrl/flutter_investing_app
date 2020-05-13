@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:investing_app/utils/constants.dart';
-import 'package:investing_app/utils/draw_triangle.dart';
 import 'package:investing_app/utils/widget_utils.dart';
 import 'package:investing_app/widgets/custom_topbar.dart';
 import 'package:investing_app/widgets/list_item_card.dart';
@@ -16,6 +15,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        backgroundColor: SECONDARY_DARK,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.blueGrey,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.multiline_chart), title: Text('Piyasalar')),
+          BottomNavigationBarItem(icon: Icon(Icons.pie_chart), title: Text('Haberler')),
+          BottomNavigationBarItem(icon: Icon(Icons.multiline_chart), title: Text('Takip Listesi')),
+        ],
+      ),
       appBar: AppBar(
         elevation: 0,
         centerTitle: false,
