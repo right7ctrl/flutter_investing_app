@@ -1,4 +1,4 @@
-# Flutter Astrology App
+# Flutter Investing App UI Clone
 
 
-[![](https://github.com/right7ctrl/flutter_investing_app/blob/master/screenshots/home.png?raw=true)]()
+[![](https://github.com/right7ctrl/flutter_investing_app/blob/master/screenshots/home.png)]()
