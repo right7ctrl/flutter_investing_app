@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:investing_app/pages/market_page.dart';
 import 'package:investing_app/utils/constants.dart';
-import 'package:investing_app/utils/widget_utils.dart';
 import 'package:investing_app/widgets/custom_topbar.dart';
-import 'package:investing_app/widgets/list_item_card.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,15 +10,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _topBarIndex = 0;
+  int _bottomBarIndex = 0;
+  PageController _pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: TERTIARY_DARK,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: _bottomBarIndex,
         backgroundColor: SECONDARY_DARK,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.blueGrey,
+        onTap: (int val) {
+          setState(() {
+            _bottomBarIndex = val;
+          });
+        },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.multiline_chart), title: Text('Piyasalar')),
           BottomNavigationBarItem(icon: Icon(Icons.pie_chart), title: Text('Haberler')),
@@ -47,6 +54,7 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 _topBarIndex = val;
               });
+              _pageController.animateToPage(val, duration: Duration(milliseconds: 300), curve: Curves.ease);
             },
             currentIndex: _topBarIndex,
             items: [
@@ -61,172 +69,26 @@ class _HomePageState extends State<HomePage> {
               TopbarItem(id: 8, title: 'Fonlar'),
             ],
           ),
+          Container(
+            height: 54,
+            width: double.infinity,
+            color: Colors.red,
+          ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 30',
-                    type: Type.INCREASE,
-                    volume: '116.417,97',
-                    meta: '18:10:12 | Istanbul',
-                    difference: '+299,62 (+0,26%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST Bankalar',
-                    type: Type.DECREASE,
-                    volume: '120.220,61',
-                    meta: '18:10:12 | Istanbul',
-                    difference: '+365,47 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'Dow 30',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'S&P 500',
-                    type: Type.DECREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | NYSE',
-                    difference: '-60,42 (-2,10%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'Nasdaq',
-                    type: Type.DECREASE,
-                    volume: '8.821.46',
-                    meta: '18:10:11 | Nasdaq',
-                    difference: '-174,48 (-2,35%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                  ListItemCard(
-                    title: 'BIST 100',
-                    type: Type.INCREASE,
-                    volume: '100.159,13',
-                    meta: '18:10:11 | Istanbul',
-                    difference: '+543,25 (+0,55%)',
-                  ),
-                  appDivider(),
-                ],
-              ),
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (int val) {
+                setState(() {
+                  _topBarIndex = val;
+                });
+              },
+              children: <Widget>[
+                MarketPage(),
+                MarketPage(),
+                MarketPage(),
+                MarketPage(),
+                MarketPage(),
+              ],
             ),
           ),
         ],

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:investing_app/utils/constants.dart';
 
-
 class ListItemCard extends StatelessWidget {
   final String title;
   final String volume;
   final String meta;
   final String difference;
-  final Type type;
+  final ItemType type;
 
   const ListItemCard({Key key, this.title, this.volume, this.meta, this.difference, this.type}) : super(key: key);
   @override
@@ -15,7 +14,7 @@ class ListItemCard extends StatelessWidget {
     return Row(
       children: <Widget>[
         Expanded(
-                  child: Container(
+          child: Container(
             height: 54,
             padding: EdgeInsets.symmetric(horizontal: 12),
             color: TERTIARY_DARK,
@@ -51,13 +50,13 @@ class ListItemCard extends StatelessWidget {
                       '$meta',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white70),
                     ),
                     Text(
                       '$difference',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: type == Type.INCREASE ? Colors.lightGreen : Colors.redAccent),
+                      style: TextStyle(color: type == ItemType.INCREASE ? Colors.lightGreen : Colors.redAccent),
                     ),
                   ],
                 ),
