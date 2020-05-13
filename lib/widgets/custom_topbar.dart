@@ -11,11 +11,13 @@ class CustomTopbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScrollController _scrollController =ScrollController();
     return Container(
       height: 54,
       width: double.infinity,
       color: SECONDARY_DARK,
       child: SingleChildScrollView(
+        controller: _scrollController,
         scrollDirection: Axis.horizontal,
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -27,6 +29,8 @@ class CustomTopbar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: GestureDetector(
                 onTap: () {
+    _scrollController.jumpTo(5);
+
                   this.onTap(f.id);
                 },
                 child: Stack(
@@ -34,7 +38,7 @@ class CustomTopbar extends StatelessWidget {
                     Center(
                       child: Text(
                         '${f.title}',
-                        style: TextStyle(fontSize: 16, color: _isSelected ? Colors.white : Colors.grey, fontWeight: _isSelected ? FontWeight.w500 : null),
+                        style: TextStyle(fontSize: 16, color: _isSelected ? Colors.white : Colors.blueGrey.shade300, fontWeight: _isSelected ? FontWeight.w500 : null),
                       ),
                     ),
                     _isSelected
@@ -65,5 +69,5 @@ class TopbarItem {
   final String title;
   final int id;
 
-  TopbarItem({this.title, this.id});
+  TopbarItem({Key key, this.title, this.id});
 }
